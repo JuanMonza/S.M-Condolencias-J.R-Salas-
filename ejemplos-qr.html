@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de QR - Jardines del Renacer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .qr-example {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .qr-link {
+            background: #f0f8ff;
+            padding: 10px;
+            border-radius: 5px;
+            word-break: break-all;
+            font-family: monospace;
+            border-left: 4px solid #007bff;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px 0 0;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏛️ Jardines del Renacer - Ejemplos de Enlaces QR</h1>
+    
+    <div class="qr-example">
+        <h3>📍 Sede Pereira - Sala Risaralda</h3>
+        <div class="qr-link">
+            index.html?sede=pereira&sala=1
+        </div>
+        <a href="index.html?sede=pereira&sala=1" class="btn">🔗 Acceder como QR</a>
+    </div>
+
+    <div class="qr-example">
+        <h3>📍 Sede Bogotá - Sala Principal</h3>
+        <div class="qr-link">
+            index.html?sede=bogota&sala=1
+        </div>
+        <a href="index.html?sede=bogota&sala=1" class="btn">🔗 Acceder como QR</a>
+    </div>
+
+    <div class="qr-example">
+        <h3>📍 Sede Medellín - Sala Antioquia</h3>
+        <div class="qr-link">
+            index.html?sede=medellin&sala=2
+        </div>
+        <a href="index.html?sede=medellin&sala=2" class="btn">🔗 Acceder como QR</a>
+    </div>
+
+    <div class="qr-example">
+        <h3>📍 Sede Cali - Sala Valle del Cauca</h3>
+        <div class="qr-link">
+            index.html?sede=cali&sala=2
+        </div>
+        <a href="index.html?sede=cali&sala=2" class="btn">🔗 Acceder como QR</a>
+    </div>
+
+    <div class="qr-example">
+        <h3>📍 Acceso Normal (sin QR)</h3>
+        <div class="qr-link">
+            index.html
+        </div>
+        <a href="index.html" class="btn">🔗 Acceso Normal</a>
+    </div>
+
+    <hr>
+    
+    <h2>📋 Instrucciones para generar QR:</h2>
+    <ol>
+        <li><strong>Copiar la URL completa</strong> incluyendo los parámetros sede y sala</li>
+        <li><strong>Usar cualquier generador de QR</strong> (como qr-code-generator.com)</li>
+        <li><strong>Pegar la URL completa</strong> en el generador</li>
+        <li><strong>Generar el código QR</strong> e imprimirlo para cada sala</li>
+    </ol>
+
+    <h2>🎯 Cómo funciona:</h2>
+    <ul>
+        <li><strong>sede=</strong> Define qué sede se está accediendo (pereira, bogota, medellin, etc.)</li>
+        <li><strong>sala=</strong> Define qué sala específica (1, 2, 3)</li>
+        <li>Al escanear el QR, aparecerá <strong>automáticamente el nombre de la sala</strong> (ej: "Risaralda")</li>
+        <li>El visitante irá <strong>directo al formulario</strong> sin tener que seleccionar sala</li>
+        <li>Los datos quedarán registrados en la sede y sala correcta</li>
+    </ul>
+</body>
+</html>

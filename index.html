@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardines del Renacer - Sistema de Condolencias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Partículas cristalinas de fondo -->
+    <div class="crystal-particles" id="crystalParticles"></div>
+    
+    <div class="container mx-auto px-2 sm:px-4 py-4 sm:py-8 relative z-10">
+        <!-- Header con cristal premium -->
+        <header class="text-center mb-4 sm:mb-8 fade-in">
+            <div class="premium-glass rounded-3xl p-6 sm:p-8 max-w-3xl mx-auto floating-glass depth-glass hex-crystal">
+                <div class="relative z-10">
+                    <div class="text-6xl sm:text-7xl mb-4 glass-shimmer">🏛️</div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 glass-shimmer bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+                        Jardines del Renacer
+                    </h1>
+                    <p class="text-lg sm:text-xl text-blue-100 font-light mb-4">Sistema Digital de Condolencias</p>
+                    <p id="locationDisplay" class="text-sm sm:text-base text-blue-300 mt-2 hidden glass-shimmer"></p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-4xl mx-auto">
+            <!-- Step 1: Sala Selection -->
+            <div id="salaSelection" class="ultra-glass rounded-2xl p-6 sm:p-10 mb-6 sm:mb-8 fade-in floating-glass">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center glass-shimmer">
+                    <div class="text-4xl mb-4">🏛️</div>
+                    <span class="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+                        Seleccione la Sala de su Preferencia
+                    </span>
+                    <div class="text-sm font-light text-blue-200 mt-2">Con respeto y cariño</div>
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <button onclick="selectSala(1)" class="sala-btn glass-button rounded-2xl p-6 sm:p-8 transition-all duration-500 text-center floating-glass group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="text-5xl sm:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🏛️</div>
+                            <h3 id="sala1ButtonTitle" class="text-xl sm:text-2xl font-bold text-white mb-3 glass-shimmer">Sala 1</h3>
+                            <p class="text-blue-200 text-sm sm:text-base font-light" id="sala1Info">✨ Disponible</p>
+                            <div class="mt-4 flex justify-center space-x-2 text-sm text-blue-300">
+                                <span>Seleccionar</span>
+                            </div>
+                        </div>
+                    </button>
+                    <button onclick="selectSala(2)" class="sala-btn glass-button rounded-2xl p-6 sm:p-8 transition-all duration-500 text-center floating-glass group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="text-5xl sm:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🏛️</div>
+                            <h3 id="sala2ButtonTitle" class="text-xl sm:text-2xl font-bold text-white mb-3 glass-shimmer">Sala 2</h3>
+                            <p class="text-blue-200 text-sm sm:text-base font-light" id="sala2Info">✨ Disponible</p>
+                            <div class="mt-4 flex justify-center space-x-2 text-sm text-blue-300">
+                                <span>Seleccionar</span>
+                            </div>
+                        </div>
+                    </button>
+                    <button onclick="selectSala(3)" class="sala-btn glass-button rounded-2xl p-6 sm:p-8 transition-all duration-500 text-center floating-glass group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="text-5xl sm:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🏛️</div>
+                            <h3 id="sala3ButtonTitle" class="text-xl sm:text-2xl font-bold text-white mb-3 glass-shimmer">Sala 3</h3>
+                            <p class="text-blue-200 text-sm sm:text-base font-light" id="sala3Info">✨ Disponible</p>
+                            <div class="mt-4 flex justify-center space-x-2 text-sm text-blue-300">
+                                <span>Seleccionar</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Personal Information -->
+            <div id="personalForm" class="ultra-glass rounded-2xl p-6 sm:p-10 mb-6 sm:mb-8 hidden floating-glass">
+                <div class="flex items-center mb-6 sm:mb-8">
+                    <button onclick="goBack('salaSelection')" class="glass-button text-white hover:text-white mr-4 text-sm sm:text-base px-4 py-2 rounded-xl">
+                        <span class="mr-2">←</span>
+                        <span>Volver</span>
+                    </button>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white glass-shimmer flex items-center">
+                        <span class="inline-block mr-3 text-3xl">📝</span>
+                        <span class="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+                            Información Personal
+                        </span>
+                    </h2>
+                </div>
+                
+                <form id="personalDataForm" class="space-y-6 sm:space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="nombres" class="block text-sm font-medium text-white mb-3">
+                                <span class="inline-block mr-2">👤</span>
+                                Nombres *
+                            </label>
+                            <input type="text" id="nombres" name="nombres" required 
+                                   class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base font-medium"
+                                   placeholder="✨ Ingrese sus nombres">
+                        </div>
+                        <div>
+                            <label for="apellidos" class="block text-sm font-medium text-white mb-3">
+                                <span class="inline-block mr-2">👥</span>
+                                Apellidos *
+                            </label>
+                            <input type="text" id="apellidos" name="apellidos" required 
+                                   class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base font-medium"
+                                   placeholder="✨ Ingrese sus apellidos">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="telefono" class="block text-sm font-medium text-white mb-3">
+                                <span class="inline-block mr-2">📱</span>
+                                Teléfono Celular *
+                            </label>
+                            <input type="tel" id="telefono" name="telefono" required 
+                                   class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base font-medium"
+                                   placeholder="📞 Ej: 3001234567">
+                        </div>
+                        <div>
+                            <label for="cedula" class="block text-sm font-medium text-white mb-3">
+                                <span class="inline-block mr-2">🆔</span>
+                                Cédula *
+                            </label>
+                            <input type="text" id="cedula" name="cedula" required 
+                                   class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base font-medium"
+                                   placeholder="🆔 Número de cédula">
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end">
+                        <button type="submit" class="glass-button px-8 py-3 rounded-xl font-bold text-white text-base group">
+                            <span class="group-hover:scale-110 inline-block transition-transform">▶️</span>
+                            <span class="ml-2">Continuar</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Message Form -->
+            <div id="messageForm" class="ultra-glass rounded-2xl p-6 sm:p-10 mb-6 sm:mb-8 hidden floating-glass">
+                <div class="flex items-center mb-6 sm:mb-8">
+                    <button onclick="goBack('personalForm')" class="glass-button text-white hover:text-white mr-4 text-sm sm:text-base px-4 py-2 rounded-xl">
+                        <span class="mr-2">←</span>
+                        <span>Volver</span>
+                    </button>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white glass-shimmer flex items-center">
+                        <span class="inline-block mr-3 text-3xl">💌</span>
+                        <span class="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+                            Mensaje de Condolencias
+                        </span>
+                    </h2>
+                </div>
+                
+                <form id="condolenceForm" class="space-y-6 sm:space-y-8">
+                    <div>
+                        <label for="mensaje" class="block text-sm font-medium text-white mb-3">
+                            <span class="inline-block mr-2">💝</span>
+                            Su Mensaje Emotivo o Recordatorio *
+                        </label>
+                        <textarea id="mensaje" name="mensaje" required rows="6"
+                                  class="crystal-input w-full px-4 py-4 rounded-xl text-gray-800 text-sm sm:text-base font-medium resize-none"
+                                  placeholder="🌹 Comparta sus palabras de consuelo, un recuerdo especial o mensaje de apoyo para la familia..."></textarea>
+                        <div class="text-xs sm:text-sm text-cyan-200 mt-3 font-medium">
+                            <span class="inline-block mr-2">📝</span>
+                            <span id="charCount">0</span>/500 caracteres
+                        </div>
+                    </div>
+                    
+                    <div class="premium-glass rounded-xl p-4 sm:p-6 border border-cyan-400/30">
+                        <div class="flex items-start">
+                            <div class="text-cyan-300 mr-3 mt-1 text-lg">ℹ️</div>
+                            <div>
+                                <h4 class="font-bold text-white mb-3 text-sm sm:text-base flex items-center">
+                                    <span class="mr-2">📚</span>
+                                    Su mensaje será incluido en:
+                                </h4>
+                                <ul class="text-xs sm:text-sm text-cyan-100 space-y-2">
+                                    <li class="flex items-center">
+                                        <span class="mr-2">📖</span>
+                                        Un libro digital de condolencias
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">📄</span>
+                                        Un PDF que se entregará a la familia
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">💾</span>
+                                        El registro permanente del servicio
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end">
+                        <button type="submit" class="glass-button px-8 py-3 rounded-xl font-bold text-white text-base group">
+                            <span class="group-hover:scale-110 inline-block transition-transform">💌</span>
+                            <span class="ml-2">Enviar Condolencias</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="bg-white rounded-lg p-4 sm:p-8 card-shadow text-center hidden success-animation">
+                <div class="text-4xl sm:text-6xl mb-4">✅</div>
+                <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">¡Mensaje Enviado Exitosamente!</h2>
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">Gracias por compartir sus palabras de consuelo. Su mensaje ha sido registrado y será incluido en el libro de condolencias que se entregará a la familia.</p>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mb-6">
+                    <p class="text-blue-800 font-medium text-sm sm:text-base">Su participación significa mucho para la familia en estos momentos difíciles.</p>
+                </div>
+                <button onclick="resetForm()" class="glass-button text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-colors duration-200 text-sm sm:text-base">
+                    ✨ Enviar Otro Mensaje
+                </button>
+            </div>
+        </main>
+
+        <!-- Panel Administrativo con Cristal Premium -->
+        <div id="adminPanel" class="premium-glass rounded-3xl p-6 sm:p-10 mb-6 sm:mb-8 hidden floating-glass depth-glass">
+            <div class="flex items-center justify-between mb-6 sm:mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white glass-shimmer bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+                    <span class="block">Panel Administrativo</span>
+                    <div class="text-sm font-light text-blue-200 mt-1">Gestión y Control del Sistema</div>
+                </h2>
+                <button onclick="closeAdminPanel()" class="glass-button text-white hover:text-white px-4 py-3 rounded-xl text-lg sm:text-xl group">
+                    <span class="group-hover:scale-110 inline-block transition-transform">✕</span>
+                    <span class="ml-2 text-sm">Cerrar</span>
+                </button>
+            </div>
+            
+            <!-- Login Cristalino -->
+            <div id="adminLogin" class="mb-8 sm:mb-10">
+                <div class="max-w-lg mx-auto">
+                    <div class="ultra-glass rounded-2xl p-6 sm:p-8 floating-glass">
+                        <div class="text-center mb-6">
+                            <div class="text-5xl mb-4">🔐</div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white glass-shimmer bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mb-2">
+                                Acceso Administrativo
+                            </h3>
+                            <p class="text-blue-200 text-sm">Ingrese sus credenciales para continuar</p>
+                        </div>
+                        <form id="adminLoginForm" class="space-y-6">
+                            <div>
+                                <label for="locationSelect" class="block text-sm font-medium text-white mb-3">
+                                    Seleccionar Sede
+                                </label>
+                                <select id="locationSelect" name="locationSelect" required 
+                                        class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base font-medium">
+                                    <option value="">🏛️ Seleccione su sede...</option>
+                                    <option value="bogota">🏛️ Bogotá - Sede Principal</option>
+                                    <option value="medellin">🏛️ Medellín - Sede Norte</option>
+                                    <option value="cali">🏛️ Cali - Sede Valle</option>
+                                    <option value="barranquilla">🏛️ Barranquilla - Sede Costa</option>
+                                    <option value="cartagena">🏛️ Cartagena - Sede Bolivar</option>
+                                    <option value="bucaramanga">🏛️ Bucaramanga - Sede Santander</option>
+                                    <option value="pereira">🏛️ Pereira - Sede Risaralda</option>
+                                    <option value="manizales">🏛️ Manizales - Sede Caldas</option>
+                                    <option value="ibague">🏛️ Ibagué - Sede Tolima</option>
+                                    <option value="cucuta">🏛️ Cúcuta - Sede Norte Santander</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="adminPassword" class="block text-sm font-medium text-white mb-3">
+                                    Contraseña de Administrador
+                                </label>
+                                <input type="password" id="adminPassword" name="adminPassword" required 
+                                       class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base"
+                                       placeholder="🔐 Ingrese la contraseña de su sede">
+                            </div>
+                            <button type="submit" class="glass-button w-full py-3 rounded-xl font-bold text-white text-base group">
+                                <span class="ml-2">Acceder al Sistema</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Cristalino -->
+            <div id="adminDashboard" class="hidden">
+                <!-- Ubicación Actual con Cristal -->
+                <div class="ultra-glass rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 floating-glass">
+                    <div class="flex items-center justify-center space-x-4">
+                        <div class="text-3xl">📍</div>
+                        <div>
+                            <h4 class="font-bold text-white mb-1 text-base sm:text-lg glass-shimmer">Sede Activa:</h4>
+                            <p id="currentLocationName" class="text-blue-200 text-sm sm:text-base font-light"></p>
+                        </div>
+                        <div class="text-3xl animate-pulse">✨</div>
+                    </div>
+                </div>
+
+                <!-- Service Time Alerts -->
+                <div id="timeAlerts" class="mb-4 sm:mb-6 space-y-2">
+                    <!-- Time alerts will appear here -->
+                </div>
+
+                <!-- Gestión Cristalina de Salas -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 mb-8 sm:mb-10">
+                    <div class="premium-glass rounded-2xl p-6 sm:p-8 floating-glass">
+                        <div class="text-center mb-6">
+                            <div class="text-4xl mb-3">🏛️</div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white glass-shimmer bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                                Gestión de Salas
+                            </h3>
+                            <p class="text-blue-200 text-sm mt-2">Configure la información de cada sala</p>
+                        </div>
+                        <form id="salaManagementForm" class="space-y-5 sm:space-y-6">
+                            <div>
+                                <label for="salaSelect" class="block text-sm font-medium text-white mb-3">
+                                    Seleccionar Sala
+                                </label>
+                                <select id="salaSelect" class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base font-medium">
+                                    <option value="1">🏛️ Sala 1</option>
+                                    <option value="2">🏛️ Sala 2</option>
+                                    <option value="3">🏛️ Sala 3</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="difuntoName" class="block text-sm font-medium text-white mb-3">
+                                    Nombre del Difunto
+                                </label>
+                                <input type="text" id="difuntoName" class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base" placeholder=" Ej: María González">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="fechaNacimiento" class="block text-sm font-medium text-white mb-3">
+                                        Año Nacimiento
+                                    </label>
+                                    <input type="number" id="fechaNacimiento" class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base" placeholder="1945">
+                                </div>
+                                <div>
+                                    <label for="fechaFallecimiento" class="block text-sm font-medium text-white mb-3">
+                                        Año Fallecimiento
+                                    </label>
+                                    <input type="number" id="fechaFallecimiento" class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base" placeholder="2024">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="horaInicio" class="block text-sm font-medium text-white mb-3">
+                                        <span class="inline-block mr-2">🕘</span>
+                                        Hora Inicio
+                                    </label>
+                                    <input type="time" id="horaInicio" class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base">
+                                </div>
+                                <div>
+                                    <label for="horaFin" class="block text-sm font-medium text-white mb-3">
+                                        <span class="inline-block mr-2">🕕</span>
+                                        Hora Fin
+                                    </label>
+                                    <input type="time" id="horaFin" class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="celularFamiliar" class="block text-sm font-medium text-white mb-3">
+                                    Celular del Familiar
+                                </label>
+                                <input type="tel" id="celularFamiliar" class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base" placeholder="3001234567">
+                            </div>
+                            <button type="submit" class="glass-button w-full py-3 rounded-xl font-bold text-white text-base group">
+                                <span class="ml-2">Actualizar Información</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Sala Status -->
+                    <div class="premium-glass rounded-2xl p-6 shadow-2xl floating-glass">
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                            <span class="inline-block mr-3 text-2xl">📊</span>
+                            Estado de Salas
+                            <div class="ml-auto w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                        </h3>
+                        <div class="space-y-4">
+                            <div id="salaStatus1" class="ultra-glass p-4 rounded-xl border border-white/20 hover:border-cyan-400/50 transition-all">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h4 id="sala1Title" class="font-bold text-white flex items-center">
+                                        <span class="mr-2">🏛️</span>
+                                        Sala 1
+                                    </h4>
+                                    <span class="px-3 py-1 bg-gradient-to-r from-cyan-400 to-blue-500 text-white text-xs rounded-full font-bold shadow-lg">
+                                        ✨ Activa
+                                    </span>
+                                </div>
+                                <p class="text-cyan-100 mb-2 font-medium" id="salaInfo1">
+                                    <span class="mr-2">💫</span>
+                                    Disponible
+                                </p>
+                                <p class="text-cyan-200 mb-4 text-sm" id="visitCount1">
+                                    <span class="mr-2">👥</span>
+                                    Visitantes: 0
+                                </p>
+                                <button onclick="closeSala(1)" class="glass-button w-full py-2 rounded-lg text-sm font-bold text-white group">
+                                    <span class="group-hover:scale-110 inline-block transition-transform">🔒</span>
+                                    <span class="ml-2">Cerrar Sala</span>
+                                </button>
+                            </div>
+                            <div id="salaStatus2" class="ultra-glass p-4 rounded-xl border border-white/20 hover:border-cyan-400/50 transition-all">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h4 id="sala2Title" class="font-bold text-white flex items-center">
+                                        <span class="mr-2">🏛️</span>
+                                        Sala 2
+                                    </h4>
+                                    <span class="px-3 py-1 bg-gradient-to-r from-cyan-400 to-blue-500 text-white text-xs rounded-full font-bold shadow-lg">
+                                        ✨ Activa
+                                    </span>
+                                </div>
+                                <p class="text-cyan-100 mb-2 font-medium" id="salaInfo2">
+                                    <span class="mr-2">💫</span>
+                                    Disponible
+                                </p>
+                                <p class="text-cyan-200 mb-4 text-sm" id="visitCount2">
+                                    <span class="mr-2">👥</span>
+                                    Visitantes: 0
+                                </p>
+                                <button onclick="closeSala(2)" class="glass-button w-full py-2 rounded-lg text-sm font-bold text-white group">
+                                    <span class="group-hover:scale-110 inline-block transition-transform">🔒</span>
+                                    <span class="ml-2">Cerrar Sala</span>
+                                </button>
+                            </div>
+                            <div id="salaStatus3" class="ultra-glass p-4 rounded-xl border border-white/20 hover:border-cyan-400/50 transition-all">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h4 id="sala3Title" class="font-bold text-white flex items-center">
+                                        <span class="mr-2">🏛️</span>
+                                        Sala 3
+                                    </h4>
+                                    <span class="px-3 py-1 bg-gradient-to-r from-cyan-400 to-blue-500 text-white text-xs rounded-full font-bold shadow-lg">
+                                        ✨ Activa
+                                    </span>
+                                </div>
+                                <p class="text-cyan-100 mb-2 font-medium" id="salaInfo3">
+                                    <span class="mr-2">💫</span>
+                                    Disponible
+                                </p>
+                                <p class="text-cyan-200 mb-4 text-sm" id="visitCount3">
+                                    <span class="mr-2">👥</span>
+                                    Visitantes: 0
+                                </p>
+                                <button onclick="closeSala(3)" class="glass-button w-full py-2 rounded-lg text-sm font-bold text-white group">
+                                    <span class="group-hover:scale-110 inline-block transition-transform">🔒</span>
+                                    <span class="ml-2">Cerrar Sala</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registered Visitors -->
+                <div class="premium-glass rounded-2xl p-6 shadow-2xl floating-glass">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 space-y-3 sm:space-y-0">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="inline-block mr-3 text-2xl">👥</span>
+                            Visitantes Registrados
+                            <div class="ml-3 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                        </h3>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button onclick="generateVisitorsPDF()" class="glass-button px-4 py-2 rounded-xl text-sm font-bold text-white group">
+                                <span class="group-hover:scale-110 inline-block transition-transform">📄</span>
+                                <span class="ml-2">PDF Completo</span>
+                            </button>
+                            <button onclick="generateSalaPDF()" class="glass-button px-4 py-2 rounded-xl text-sm font-bold text-white group">
+                                <span class="group-hover:scale-110 inline-block transition-transform">📋</span>
+                                <span class="ml-2">PDF por Sala</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Filter by Sala -->
+                    <div class="mb-6">
+                        <label for="salaFilter" class="block text-sm font-medium text-white mb-3">
+                            <span class="inline-block mr-2">🔍</span>
+                            Filtrar por Sala:
+                        </label>
+                        <select id="salaFilter" onchange="updateVisitorsTable()" class="crystal-input px-4 py-2 rounded-xl text-gray-800 text-sm font-medium">
+                            <option value="">🏛️ Todas las Salas</option>
+                            <option value="1">🏛️ Sala 1</option>
+                            <option value="2">🏛️ Sala 2</option>
+                            <option value="3">🏛️ Sala 3</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Visitors Cards View -->
+                    <div id="visitorsCards" class="space-y-4 mb-6">
+                        <!-- Visitor cards will be populated here -->
+                    </div>
+                    
+                    <!-- Summary Table -->
+                    <div class="ultra-glass rounded-xl p-6 border border-white/20">
+                        <h4 class="font-bold text-white mb-4 flex items-center">
+                            <span class="mr-2 text-lg">📊</span>
+                            Resumen de Visitantes
+                        </h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs sm:text-sm">
+                                <thead>
+                                    <tr class="border-b border-cyan-400/30">
+                                        <th class="text-left py-3 text-cyan-200 font-bold">🏛️ Sala</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold">👤 Nombre Completo</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold hidden sm:table-cell">🆔 Cédula</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold hidden md:table-cell">📱 Teléfono</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold">🕘 Hora</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold">⚙️ Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="visitorsTable">
+                                    <!-- Visitors will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-8 sm:mt-12 text-white">
+            <p class="text-xs sm:text-sm opacity-80">© 2025 Jardines del Renacer - Sistema Digital de Condolencias</p>
+            <p class="text-xs sm:text-sm opacity-80">Version 2.0.1 | Diseñado por Juan Monsalve</p> 
+            <button onclick="showAdminPanel()" class="text-xs opacity-60 hover:opacity-80 mt-2 underline">
+                Acceso Administrativo
+            </button>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/pdf-generator.js"></script>
+</body>
+</html>

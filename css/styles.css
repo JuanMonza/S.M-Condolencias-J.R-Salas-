@@ -1,0 +1,421 @@
+/* Jardines del Renacer - Sistema de Condolencias */
+/* Diseño Glass/Cristal Único y Exclusivo */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+    /* Optimizaciones para prevenir scroll automático */
+    scroll-behavior: smooth;
+    contain: layout style paint;
+    transform: translateZ(0); /* Habilitar aceleración por hardware */
+    /* Estabilidad de scroll */
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+}
+
+/* Fondo estático con cristales */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(147, 197, 253, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(219, 234, 254, 0.04) 0%, transparent 50%);
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.015) 50%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(59, 130, 246, 0.02) 50%, transparent 70%);
+    z-index: -1;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.95) 0%, 
+        rgba(30, 41, 59, 0.9) 25%,
+        rgba(51, 65, 85, 0.85) 50%,
+        rgba(71, 85, 105, 0.9) 75%,
+        rgba(100, 116, 139, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.card-shadow {
+    box-shadow: 0 20px 25px -5px rgba(30, 58, 138, 0.1), 0 10px 10px -5px rgba(31, 41, 55, 0.04);
+    border: 1px solid rgba(30, 58, 138, 0.1);
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.success-animation {
+    animation: successPulse 0.6s ease-in-out;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.alert-pulse {
+    animation: alertPulse 2s infinite;
+}
+
+@keyframes alertPulse {
+    0%, 100% { background-color: #dbeafe; }
+    50% { background-color: #3b82f6; }
+}
+
+/* Esquema de colores azul-gris profesional */
+.bg-blue-primary {
+    background-color: #1e3a8a;
+}
+
+.bg-blue-secondary {
+    background-color: #3b82f6;
+}
+
+.bg-gray-primary {
+    background-color: #374151;
+}
+
+.bg-gray-secondary {
+    background-color: #6b7280;
+}
+
+.text-blue-primary {
+    color: #1e3a8a;
+}
+
+.text-blue-secondary {
+    color: #3b82f6;
+}
+
+.border-blue-primary {
+    border-color: #1e3a8a;
+}
+
+.hover-blue-effect:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* SISTEMA DE CRISTAL AVANZADO - Diseño Único */
+
+/* Cristal Principal - Nivel 1 (Más transparente) */
+.ultra-glass {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(25px) saturate(1.8);
+    -webkit-backdrop-filter: blur(25px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 25px 45px rgba(0, 0, 0, 0.1),
+        0 15px 35px rgba(59, 130, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cristal Medio - Nivel 2 */
+.glass-card {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(20px) saturate(1.5);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.08),
+        0 10px 25px rgba(59, 130, 246, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    position: relative;
+}
+
+/* Cristal Sólido - Nivel 3 (Botones y elementos interactivos) */
+.glass-button {
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.4) 0%,
+        rgba(59, 130, 246, 0.2) 50%,
+        rgba(59, 130, 246, 0.3) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    border-top: 1px solid rgba(59, 130, 246, 0.7);
+    box-shadow: 
+        0 15px 35px rgba(59, 130, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-button:hover {
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.6) 0%,
+        rgba(59, 130, 246, 0.3) 50%,
+        rgba(59, 130, 246, 0.5) 100%);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(59, 130, 246, 0.3),
+        0 15px 30px rgba(59, 130, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(59, 130, 246, 0.8);
+}
+
+/* Cristal Premium - Nivel 4 (Para elementos especiales) */
+.premium-glass {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(59, 130, 246, 0.1) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(147, 197, 253, 0.08) 75%,
+        rgba(255, 255, 255, 0.2) 100%);
+    backdrop-filter: blur(30px) saturate(2);
+    -webkit-backdrop-filter: blur(30px) saturate(2);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.12),
+        0 20px 40px rgba(59, 130, 246, 0.15),
+        inset 0 2px 0 rgba(255, 255, 255, 0.7),
+        inset 0 -2px 0 rgba(59, 130, 246, 0.3);
+    position: relative;
+}
+
+/* Efectos de brillo y reflexión mejorados */
+.glass-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.4) 20%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0.4) 80%,
+        transparent 100%);
+    animation: premium-shimmer 4s infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes premium-shimmer {
+    0% { 
+        left: -100%; 
+        opacity: 0;
+    }
+    50% { 
+        left: 0%; 
+        opacity: 1;
+    }
+    100% { 
+        left: 100%; 
+        opacity: 0;
+    }
+}
+
+/* Efectos de cristal flotante */
+.floating-glass {
+    animation: glass-float 6s ease-in-out infinite;
+}
+
+@keyframes glass-float {
+    0%, 100% { 
+        transform: translateY(0px) rotateX(0deg); 
+    }
+    50% { 
+        transform: translateY(-10px) rotateX(2deg); 
+    }
+}
+
+/* Cristal con efecto de profundidad */
+.depth-glass {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.depth-glass::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(59, 130, 246, 0.08) 100%);
+    border-radius: inherit;
+    z-index: -1;
+    transform: translateZ(-50px);
+    filter: blur(20px);
+}
+
+/* SISTEMA DE PARTÍCULAS CRISTALINAS ÚNICAS */
+.crystal-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.crystal-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: crystal-drift linear infinite;
+    box-shadow: 
+        0 0 6px rgba(255, 255, 255, 0.5),
+        0 0 12px rgba(59, 130, 246, 0.3),
+        0 0 18px rgba(147, 197, 253, 0.2);
+    /* Optimizaciones de rendimiento */
+    will-change: transform;
+    contain: layout style paint;
+    transform: translateZ(0); /* Aceleración por hardware */
+    pointer-events: none;
+}
+
+@keyframes crystal-drift {
+    0% {
+        transform: translate3d(0, -100vh, 0) rotate(0deg) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: translate3d(0, -90vh, 0) scale(1);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(50px, 100vh, 0) rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+/* Efecto de brillo sutil */
+.glass-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Enhanced responsive design */
+@media (max-width: 640px) {
+    .container { 
+        padding: 0.5rem; 
+    }
+    
+    .card-shadow { 
+        margin: 0.5rem 0; 
+    }
+    
+    .grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .text-3xl { 
+        font-size: 1.5rem; 
+    }
+    
+    .text-2xl { 
+        font-size: 1.25rem; 
+    }
+    
+    .p-8 { 
+        padding: 1rem; 
+    }
+    
+    .p-6 { 
+        padding: 0.75rem; 
+    }
+    
+    .space-y-6 > * + * { 
+        margin-top: 1rem; 
+    }
+    
+    .gap-6 { 
+        gap: 0.75rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    .md\:grid-cols-2 { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .md\:grid-cols-3 { 
+        grid-template-columns: 1fr; 
+    }
+}
