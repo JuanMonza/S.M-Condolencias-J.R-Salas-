@@ -122,4 +122,145 @@ El sistema soporta múltiples sedes con credenciales específicas:
 
 ---
 
-*Sistema desarrollado para Jardines del Renacer © 2024*# S.M-Condolencias-J.R-Salas-
+*Sistema desarrollado para Jardines del Renacer © 2024*# 🏛️ Sistema de Condolencias - Jardines del Renacer
+
+## 📋 Descripción
+Sistema digital completo de condolencias para Jardines del Renacer, diseñado para gestionar múltiples sedes y salas de manera elegante y profesional.
+
+## ✨ Características Principales
+
+### 🎨 Diseño Visual
+- **Efectos Cristal Premium**: Interfaz con efectos glass morphism de alta calidad
+- **Diseño Responsivo**: Adaptable a móviles, tablets y desktop
+- **Tema Azul-Gris**: Colores apropiados para el ambiente solemne
+- **Animaciones Suaves**: Transiciones elegantes y profesionales
+
+### 🏢 Multi-Sede
+Sistema que soporta múltiples ubicaciones:
+- **Bogotá**: 3 salas (Bogotá Principal, Bogotá Norte, Bogotá Sur)
+- **Pereira**: 3 salas (Risaralda, Pereira Centro, Pereira Norte)  
+- **Medellín**: 3 salas (Medellín Principal, Antioquia, Medellín Oriente)
+- **Cali**: 3 salas (Cali Principal, Valle del Cauca, Cali Norte)
+- **Barranquilla**: 3 salas (Barranquilla Principal, Atlántico, Barranquilla Norte)
+- **Cartagena**: 3 salas (Cartagena Principal, Bolívar, Cartagena Histórica)
+- **Bucaramanga**: 3 salas (Bucaramanga Principal, Santander, Bucaramanga Norte)
+- **Manizales**: 3 salas (Manizales Principal, Caldas, Manizales Norte)
+- **Ibagué**: 3 salas (Ibagué Principal, Tolima, Ibagué Norte)
+- **Pasto**: 3 salas (Pasto Principal, Nariño, Pasto Centro)
+
+### 🔗 Acceso por QR
+- URLs personalizadas para cada sede
+- Ejemplo: `index.html?sede=bogota&sala=1`
+- Detección automática de parámetros QR
+- Mensaje de bienvenida personalizado
+
+### 📝 Funcionalidades
+- **Registro de Visitantes**: Formulario completo de información personal
+- **Mensajes de Condolencias**: Sistema de mensajes emotivos
+- **Panel Administrativo**: Gestión completa del sistema
+- **Generación de PDFs**: Reportes por sala y completos
+- **Gestión de Salas**: Control de horarios y estado
+
+## 🛠️ Tecnologías Utilizadas
+
+- **HTML5**: Estructura semántica y accesible
+- **CSS3**: Efectos cristal, gradientes y animaciones
+- **JavaScript**: Funcionalidad interactiva y gestión de datos  
+- **Tailwind CSS**: Framework de utilidades CSS
+- **PDF Generation**: Generación de reportes en PDF
+
+## 📁 Estructura del Proyecto
+
+```
+/
+├── index.html              # Página principal
+├── css/
+│   └── styles.css         # Estilos principales con efectos cristal
+├── js/
+│   ├── app.js            # Lógica principal de la aplicación
+│   ├── admin.js          # Panel administrativo
+│   └── pdf-generator.js  # Generación de PDFs
+├── README.md             # Documentación
+├── efectos-cristal-demo.html    # Demo de efectos
+├── ejemplos-qr.html      # Ejemplos de URLs QR
+└── esquema-colores.md    # Guía de colores
+```
+
+## 🚀 Cómo Usar
+
+### Acceso Normal
+1. Abrir `index.html` en el navegador
+2. Seleccionar la sede y sala deseada
+3. Completar información personal
+4. Escribir mensaje de condolencias
+
+### Acceso por QR
+1. Generar QR con URL: `index.html?sede=NOMBRE_SEDE&sala=NUMERO`
+2. Escanear QR desde móvil
+3. El sistema detecta automáticamente la sede y sala
+4. Continuar con el proceso normal
+
+### Panel Administrativo
+1. Hacer clic en "Acceso Administrativo" en el footer
+2. Usar contraseña: `jardines2024`
+3. Gestionar salas, visitantes y generar reportes
+
+## 🎯 URLs de Ejemplo
+
+```
+# Bogotá - Sala 1
+index.html?sede=bogota&sala=1
+
+# Pereira - Sala 2  
+index.html?sede=pereira&sala=2
+
+# Medellín - Sala 3
+index.html?sede=medellin&sala=3
+```
+
+## 🔧 Instalación y Desarrollo
+
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/JuanMonza/S.M-Condolencias-J.R-Salas-.git
+```
+
+2. **Abrir en navegador**
+```bash
+# Servir localmente con servidor HTTP
+python -m http.server 8000
+# o usar Live Server en VS Code
+```
+
+3. **Acceder al sistema**
+```
+http://localhost:8000
+```
+
+## 📱 Compatibilidad
+
+- ✅ Chrome/Edge (Recomendado)
+- ✅ Firefox  
+- ✅ Safari
+- ✅ Móviles Android/iOS
+- ✅ Tablets
+
+## 🎨 Características de Diseño
+
+- **Glass Morphism**: Efectos cristal con blur y transparencias
+- **Gradientes**: Colores azul-gris elegantes
+- **Micro-interacciones**: Botones con efectos hover
+- **Tipografía**: Fuentes legibles y jerárquicas
+- **Espaciado**: Diseño con respiración visual
+
+## 📄 Licencia
+
+© 2024 Jardines del Renacer - Sistema Digital de Condolencias
+
+## 👥 Desarrollado por
+
+**JuanMonza** - Sistema completo de condolencias digitales
+
+---
+
+*Para soporte técnico o consultas, contactar al administrador del sistema.*
