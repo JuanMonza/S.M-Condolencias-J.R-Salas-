@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #595959ac 50%, #5e646d 75%, #545d68 100%);
     background-attachment: fixed;
     position: relative;
     overflow-x: hidden;
@@ -224,43 +224,10 @@ body::after {
     position: relative;
 }
 
-/* Efectos de brillo y reflexión mejorados */
-.glass-shimmer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.4) 20%,
-        rgba(255, 255, 255, 0.8) 50%,
-        rgba(255, 255, 255, 0.4) 80%,
-        transparent 100%);
-    animation: premium-shimmer 4s infinite;
-    z-index: 1;
-    pointer-events: none;
-}
-
-@keyframes premium-shimmer {
-    0% { 
-        left: -100%; 
-        opacity: 0;
-    }
-    50% { 
-        left: 0%; 
-        opacity: 1;
-    }
-    100% { 
-        left: 100%; 
-        opacity: 0;
-    }
-}
-
 /* Efectos de cristal flotante */
 .floating-glass {
-    animation: glass-float 6s ease-in-out infinite;
+    /* Animación desactivada para verificar si causa distorsión en el texto. */
+    /* animation: glass-float 6s ease-in-out infinite; */
 }
 
 @keyframes glass-float {
@@ -312,11 +279,11 @@ body::after {
     height: 6px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
     border-radius: 50%;
-    animation: crystal-drift linear infinite;
+    animation: crystal-drift 25s linear infinite;
     box-shadow: 
-        0 0 6px rgba(255, 255, 255, 0.5),
-        0 0 12px rgba(59, 130, 246, 0.3),
-        0 0 18px rgba(147, 197, 253, 0.2);
+        0 0 8px rgba(200, 200, 200, 0.4),
+        0 0 14px rgba(220, 220, 220, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.2);
     /* Optimizaciones de rendimiento */
     will-change: transform;
     contain: layout style paint;
@@ -326,18 +293,18 @@ body::after {
 
 @keyframes crystal-drift {
     0% {
-        transform: translate3d(0, -100vh, 0) rotate(0deg) scale(0);
+        transform: translateY(100vh) scale(0.5);
         opacity: 0;
     }
     10% {
         opacity: 1;
-        transform: translate3d(0, -90vh, 0) scale(1);
+        transform: scale(1);
     }
     90% {
         opacity: 1;
     }
     100% {
-        transform: translate3d(50px, 100vh, 0) rotate(360deg) scale(0);
+        transform: translateY(-100vh) scale(0.5);
         opacity: 0;
     }
 }
@@ -417,5 +384,46 @@ body::after {
     
     .md\:grid-cols-3 { 
         grid-template-columns: 1fr; 
+    }
+}
+
+/* Animación para el logo al cargar */
+.logo-fade-in {
+    animation: logoFadeIn 1.5s ease-out forwards;
+    opacity: 0; /* Asegura que el logo esté oculto al inicio */
+}
+
+@keyframes logoFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animación de rebote para los botones de sala */
+.sala-bounce-in {
+    animation: subtleBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0; /* Empezar oculto */
+}
+
+@keyframes subtleBounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.05);
+    }
+    80% {
+        transform: translateY(5px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }

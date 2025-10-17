@@ -255,7 +255,7 @@ http://localhost:8000
 
 ## 📄 Licencia
 
-© 2024 Jardines del Renacer - Sistema Digital de Condolencias
+© 2025 Jardines del Renacer - Sistema Digital de Condolencias
 
 ## 👥 Desarrollado por
 

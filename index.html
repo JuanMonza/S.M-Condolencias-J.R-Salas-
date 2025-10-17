@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jardines del Renacer - Sistema de Condolencias</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="medios/logos.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="gradient-bg min-h-screen">
-    <!-- Partículas cristalinas de fondo -->
-    <div class="crystal-particles" id="crystalParticles"></div>
     
     <div class="container mx-auto px-2 sm:px-4 py-4 sm:py-8 relative z-10">
         <!-- Header con cristal premium -->
         <header class="text-center mb-4 sm:mb-8 fade-in">
             <div class="premium-glass rounded-3xl p-6 sm:p-8 max-w-3xl mx-auto floating-glass depth-glass hex-crystal">
                 <div class="relative z-10">
-                    <div class="text-6xl sm:text-7xl mb-4 glass-shimmer">🏛️</div>
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 glass-shimmer bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-                        Jardines del Renacer
-                    </h1>
+                    <div class="flex justify-center items-center gap-4 sm:gap-6 mb-4">
+                        <img src="medios/logos.png" alt="Logo Jardines del Renacer" class="h-22 sm:h-22 w-auto logo-fade-in">
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent text-left">
+                        </h1>
+                    </div>
                     <p class="text-lg sm:text-xl text-blue-100 font-light mb-4">Sistema Digital de Condolencias</p>
-                    <p id="locationDisplay" class="text-sm sm:text-base text-blue-300 mt-2 hidden glass-shimmer"></p>
+                    <p id="locationDisplay" class="text-sm sm:text-base text-blue-300 mt-2 hidden"></p>
                 </div>
             </div>
         </header>
@@ -30,38 +30,37 @@
         <main class="max-w-4xl mx-auto">
             <!-- Step 1: Sala Selection -->
             <div id="salaSelection" class="ultra-glass rounded-2xl p-6 sm:p-10 mb-6 sm:mb-8 fade-in floating-glass">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center glass-shimmer">
-                    <div class="text-4xl mb-4">🏛️</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">
                     <span class="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
                         Seleccione la Sala de su Preferencia
                     </span>
                     <div class="text-sm font-light text-blue-200 mt-2">Con respeto y cariño</div>
                 </h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    <button onclick="selectSala(1)" class="sala-btn glass-button rounded-2xl p-6 sm:p-8 transition-all duration-500 text-center floating-glass group relative overflow-hidden">
+                    <button onclick="selectSala(1)" class="sala-btn glass-button rounded-2xl p-6 sm:p-8 transition-all duration-500 text-center floating-glass group relative overflow-hidden sala-bounce-in" style="animation-delay: 0.5s;">
                         <div class="relative z-10">
                             <div class="text-5xl sm:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🏛️</div>
-                            <h3 id="sala1ButtonTitle" class="text-xl sm:text-2xl font-bold text-white mb-3 glass-shimmer">Sala 1</h3>
+                            <h3 id="sala1ButtonTitle" class="text-xl sm:text-2xl font-bold text-white mb-3">Sala 1</h3>
                             <p class="text-blue-200 text-sm sm:text-base font-light" id="sala1Info">✨ Disponible</p>
                             <div class="mt-4 flex justify-center space-x-2 text-sm text-blue-300">
                                 <span>Seleccionar</span>
                             </div>
                         </div>
                     </button>
-                    <button onclick="selectSala(2)" class="sala-btn glass-button rounded-2xl p-6 sm:p-8 transition-all duration-500 text-center floating-glass group relative overflow-hidden">
+                    <button onclick="selectSala(2)" class="sala-btn glass-button rounded-2xl p-6 sm:p-8 transition-all duration-500 text-center floating-glass group relative overflow-hidden sala-bounce-in" style="animation-delay: 0.7s;">
                         <div class="relative z-10">
                             <div class="text-5xl sm:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🏛️</div>
-                            <h3 id="sala2ButtonTitle" class="text-xl sm:text-2xl font-bold text-white mb-3 glass-shimmer">Sala 2</h3>
+                            <h3 id="sala2ButtonTitle" class="text-xl sm:text-2xl font-bold text-white mb-3">Sala 2</h3>
                             <p class="text-blue-200 text-sm sm:text-base font-light" id="sala2Info">✨ Disponible</p>
                             <div class="mt-4 flex justify-center space-x-2 text-sm text-blue-300">
                                 <span>Seleccionar</span>
                             </div>
                         </div>
                     </button>
-                    <button onclick="selectSala(3)" class="sala-btn glass-button rounded-2xl p-6 sm:p-8 transition-all duration-500 text-center floating-glass group relative overflow-hidden">
+                    <button onclick="selectSala(3)" class="sala-btn glass-button rounded-2xl p-6 sm:p-8 transition-all duration-500 text-center floating-glass group relative overflow-hidden sala-bounce-in" style="animation-delay: 0.9s;">
                         <div class="relative z-10">
                             <div class="text-5xl sm:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🏛️</div>
-                            <h3 id="sala3ButtonTitle" class="text-xl sm:text-2xl font-bold text-white mb-3 glass-shimmer">Sala 3</h3>
+                            <h3 id="sala3ButtonTitle" class="text-xl sm:text-2xl font-bold text-white mb-3">Sala 3</h3>
                             <p class="text-blue-200 text-sm sm:text-base font-light" id="sala3Info">✨ Disponible</p>
                             <div class="mt-4 flex justify-center space-x-2 text-sm text-blue-300">
                                 <span>Seleccionar</span>
@@ -78,7 +77,7 @@
                         <span class="mr-2">←</span>
                         <span>Volver</span>
                     </button>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-white glass-shimmer flex items-center">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center">
                         <span class="inline-block mr-3 text-3xl">📝</span>
                         <span class="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
                             Información Personal
@@ -131,7 +130,6 @@
                     
                     <div class="flex justify-end">
                         <button type="submit" class="glass-button px-8 py-3 rounded-xl font-bold text-white text-base group">
-                            <span class="group-hover:scale-110 inline-block transition-transform">▶️</span>
                             <span class="ml-2">Continuar</span>
                         </button>
                     </div>
@@ -145,7 +143,7 @@
                         <span class="mr-2">←</span>
                         <span>Volver</span>
                     </button>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-white glass-shimmer flex items-center">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center">
                         <span class="inline-block mr-3 text-3xl">💌</span>
                         <span class="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
                             Mensaje de Condolencias
@@ -220,7 +218,7 @@
         <!-- Panel Administrativo con Cristal Premium -->
         <div id="adminPanel" class="premium-glass rounded-3xl p-6 sm:p-10 mb-6 sm:mb-8 hidden floating-glass depth-glass">
             <div class="flex items-center justify-between mb-6 sm:mb-8">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white glass-shimmer bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
                     <span class="block">Panel Administrativo</span>
                     <div class="text-sm font-light text-blue-200 mt-1">Gestión y Control del Sistema</div>
                 </h2>
@@ -231,50 +229,48 @@
             </div>
             
             <!-- Login Cristalino -->
-            <div id="adminLogin" class="mb-8 sm:mb-10">
-                <div class="max-w-lg mx-auto">
-                    <div class="ultra-glass rounded-2xl p-6 sm:p-8 floating-glass">
-                        <div class="text-center mb-6">
-                            <div class="text-5xl mb-4">🔐</div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white glass-shimmer bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mb-2">
-                                Acceso Administrativo
-                            </h3>
-                            <p class="text-blue-200 text-sm">Ingrese sus credenciales para continuar</p>
-                        </div>
-                        <form id="adminLoginForm" class="space-y-6">
-                            <div>
-                                <label for="locationSelect" class="block text-sm font-medium text-white mb-3">
-                                    Seleccionar Sede
-                                </label>
-                                <select id="locationSelect" name="locationSelect" required 
-                                        class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base font-medium">
-                                    <option value="">🏛️ Seleccione su sede...</option>
-                                    <option value="bogota">🏛️ Bogotá - Sede Principal</option>
-                                    <option value="medellin">🏛️ Medellín - Sede Norte</option>
-                                    <option value="cali">🏛️ Cali - Sede Valle</option>
-                                    <option value="barranquilla">🏛️ Barranquilla - Sede Costa</option>
-                                    <option value="cartagena">🏛️ Cartagena - Sede Bolivar</option>
-                                    <option value="bucaramanga">🏛️ Bucaramanga - Sede Santander</option>
-                                    <option value="pereira">🏛️ Pereira - Sede Risaralda</option>
-                                    <option value="manizales">🏛️ Manizales - Sede Caldas</option>
-                                    <option value="ibague">🏛️ Ibagué - Sede Tolima</option>
-                                    <option value="cucuta">🏛️ Cúcuta - Sede Norte Santander</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="adminPassword" class="block text-sm font-medium text-white mb-3">
-                                    Contraseña de Administrador
-                                </label>
-                                <input type="password" id="adminPassword" name="adminPassword" required 
-                                       class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base"
-                                       placeholder="🔐 Ingrese la contraseña de su sede">
-                            </div>
-                            <button type="submit" class="glass-button w-full py-3 rounded-xl font-bold text-white text-base group">
-                                <span class="ml-2">Acceder al Sistema</span>
-                            </button>
-                        </form>
-                    </div>
+            <div id="adminLogin" class="max-w-lg mx-auto p-6 sm:p-8">
+                <div class="text-center mb-6">
+                    <!-- Icono de candado reemplazado por avatar de admin -->
+                    <img src="/medios/avatar icono admin 2.png" alt="Icono Admin" 
+                            class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-blue-300/50 shadow-lg">
+                    <h3 class="text-xl sm:text-2xl font-bold text-white bg-gradient-to-r from-white to-blue-200 to-white bg-clip-text text-transparent mb-2">
+                        Acceso Administrativo
+                    </h3>
+                    <p class="text-blue-200 text-sm">Ingrese sus credenciales para continuar</p>
                 </div>
+                <form id="adminLoginForm" class="space-y-6">
+                    <div>
+                        <label for="locationSelect" class="block text-sm font-medium text-white mb-3">
+                            Seleccionar Sede
+                        </label>
+                        <select id="locationSelect" name="locationSelect" required 
+                                class="crystal-input w-full px-4 py-3 rounded-xl text-gray-800 text-sm sm:text-base font-medium">
+                            <option value="">Seleccione su sede</option>
+                            <option value="bogota">🏛️ Bogotá - Sede Principal</option>
+                            <option value="medellin">🏛️ Medellín - Sede Norte</option>
+                            <option value="cali">🏛️ Cali - Sede Valle</option>
+                            <option value="barranquilla">🏛️ Barranquilla - Sede Costa</option>
+                            <option value="cartagena">🏛️ Cartagena - Sede Bolivar</option>
+                            <option value="bucaramanga">🏛️ Bucaramanga - Sede Santander</option>
+                            <option value="pereira">🏛️ Pereira - Sede Risaralda</option>
+                            <option value="manizales">🏛️ Manizales - Sede Caldas</option>
+                            <option value="ibague">🏛️ Ibagué - Sede Tolima</option>
+                            <option value="cucuta">🏛️ Cúcuta - Sede Norte Santander</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="adminPassword" class="block text-sm font-medium text-white mb-3">
+                            Contraseña de Administrador
+                        </label>
+                        <input type="password" id="adminPassword" name="adminPassword" required 
+                                class="crystal-input w-full px-4 py-3 rounded-xl text-gray-950 text-sm sm:text-base"
+                                placeholder="Ingrese la contraseña de su sede">
+                    </div>
+                    <button type="submit" class="glass-button w-full py-3 rounded-xl font-bold text-white text-base group">
+                        <span class="ml-2">Acceder al Sistema</span>
+                    </button>
+                </form>
             </div>
 
             <!-- Dashboard Cristalino -->
@@ -282,12 +278,10 @@
                 <!-- Ubicación Actual con Cristal -->
                 <div class="ultra-glass rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 floating-glass">
                     <div class="flex items-center justify-center space-x-4">
-                        <div class="text-3xl">📍</div>
                         <div>
-                            <h4 class="font-bold text-white mb-1 text-base sm:text-lg glass-shimmer">Sede Activa:</h4>
+                            <h4 class="font-bold text-white mb-1 text-base sm:text-lg">Sede Activa:</h4>
                             <p id="currentLocationName" class="text-blue-200 text-sm sm:text-base font-light"></p>
                         </div>
-                        <div class="text-3xl animate-pulse">✨</div>
                     </div>
                 </div>
 
@@ -301,7 +295,7 @@
                     <div class="premium-glass rounded-2xl p-6 sm:p-8 floating-glass">
                         <div class="text-center mb-6">
                             <div class="text-4xl mb-3">🏛️</div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white glass-shimmer bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white bg-gradient-to-r from-white to-blue-200 to-white bg-clip-text text-transparent">
                                 Gestión de Salas
                             </h3>
                             <p class="text-blue-200 text-sm mt-2">Configure la información de cada sala</p>
@@ -495,12 +489,12 @@
                             <table class="w-full text-xs sm:text-sm">
                                 <thead>
                                     <tr class="border-b border-cyan-400/30">
-                                        <th class="text-left py-3 text-cyan-200 font-bold">🏛️ Sala</th>
-                                        <th class="text-left py-3 text-cyan-200 font-bold">👤 Nombre Completo</th>
-                                        <th class="text-left py-3 text-cyan-200 font-bold hidden sm:table-cell">🆔 Cédula</th>
-                                        <th class="text-left py-3 text-cyan-200 font-bold hidden md:table-cell">📱 Teléfono</th>
-                                        <th class="text-left py-3 text-cyan-200 font-bold">🕘 Hora</th>
-                                        <th class="text-left py-3 text-cyan-200 font-bold">⚙️ Acciones</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold">Sala</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold">Nombre Completo</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold hidden sm:table-cell">Cédula</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold hidden md:table-cell">Teléfono</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold">Hora</th>
+                                        <th class="text-left py-3 text-cyan-200 font-bold">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody id="visitorsTable">

@@ -324,7 +324,8 @@ function cleanupFeathers() {
 // Inicializar efectos visuales únicos (cristal y partículas)
 function initializeVisualEffects() {
     cleanupFeathers(); // Limpiar elementos de plumas
-    createCrystalParticles();
+    // Se desactiva el efecto de partículas de cristal para un fondo más limpio.
+    // createCrystalParticles();
     applyAdvancedGlassEffects();
     initializeInteractiveElements();
 }
@@ -353,10 +354,10 @@ function createCrystalParticles() {
         
         // Colores cristalinos variables
         const colors = [
-            'rgba(255, 255, 255, 0.7)',
-            'rgba(59, 130, 246, 0.5)',
-            'rgba(147, 197, 253, 0.6)',
-            'rgba(219, 234, 254, 0.4)'
+            'rgba(255, 255, 255, 0.8)', // Blanco brillante
+            'rgba(229, 231, 235, 0.7)', // Gris claro
+            'rgba(209, 213, 219, 0.6)', // Gris medio
+            'rgba(156, 163, 175, 0.5)'  // Gris más oscuro
         ];
         const color = colors[Math.floor(Math.random() * colors.length)];
         particle.style.background = `radial-gradient(circle, ${color} 0%, transparent 70%)`;
@@ -375,7 +376,7 @@ function createCrystalParticles() {
     
     // Crear partículas de manera controlada
     let particleCount = 0;
-    const maxParticles = 8; // Reducir número máximo de partículas
+    const maxParticles = 25; // Aumentar número de partículas para un efecto más lleno
     
     const particleInterval = setInterval(() => {
         if (particleCount < maxParticles) {
@@ -450,7 +451,7 @@ function initializeInteractiveElements() {
     });
     
     // Efectos de hover mejorados
-    const interactiveElements = document.querySelectorAll('.glass-button, .premium-glass');
+    const interactiveElements = document.querySelectorAll('.sala-btn');
     interactiveElements.forEach(element => {
         element.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-8px) scale(1.05)';
@@ -511,8 +512,8 @@ document.head.appendChild(style);
 
 // Mostrar mensaje de éxito con efectos especiales
 function showSuccessWithEffects() {
-    // Crear explosión de plumas especiales
-    createSuccessFeathers();
+    // Crear explosión de plumas especiales (Desactivado)
+    // createSuccessFeathers();
     
     // Mostrar la sección de éxito
     showSection('successMessage');
